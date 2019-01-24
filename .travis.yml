@@ -10,9 +10,9 @@ script:
   - docker run rjpruitt16/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t rjprutit16/mutli-client ./client
+  - docker build -t rjpruitt16/mutli-client ./client
   - docker build -t rjpruitt16/mutli-nginx ./nginx
-  - docker build -t rjprutit16/mutli-server ./server
+  - docker build -t rjpruitt16/mutli-server ./server
   - docker build -t rjpruitt16/multi-worker ./worker
   # Log in to docker client
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
