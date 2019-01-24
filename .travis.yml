@@ -15,7 +15,7 @@ after_success:
   - docker build -t rjprutit16/mutli-server ./server
   - docker build -t rjpruitt16/multi-worker ./worker
   # Log in to docker cli
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take thos images and push them to docker hub
   - docker push rjpruitt16/multi-client
   - docker push rjpruitt16/multi-nginx
