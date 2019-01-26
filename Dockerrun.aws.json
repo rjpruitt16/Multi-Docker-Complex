@@ -3,7 +3,34 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "rjpruitt16/client"
+            "image": "rjpruitt16/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "rjpruitt16/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "rjpruitt16/multi-worker",
+            "hostname": "worker",
+            "essentail": false
+        },
+        {
+            "name": "nginx",
+            "image": "rjpruitt16/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["clients", "server"]
         }
     ]
 }
